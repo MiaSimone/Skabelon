@@ -1,9 +1,6 @@
 package FunctionLayer;
 
-import DBAccess.CustomerMapper;
 import DBAccess.UserMapper;
-
-import java.sql.SQLException;
 
 /**
  * The purpose of LogicFacade is to...

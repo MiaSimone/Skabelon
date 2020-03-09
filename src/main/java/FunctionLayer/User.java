@@ -1,16 +1,6 @@
 package FunctionLayer;
 
-import DBAccess.CustomerMapper;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * The purpose of User is to...
@@ -61,6 +51,13 @@ public class User extends HttpServlet{
         this.id = id;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }
 

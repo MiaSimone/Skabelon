@@ -54,6 +54,30 @@ public class UserMapper {
         }
     }
 
+        public static ArrayList<User> customerList(){
+        ArrayList<User> customers = new ArrayList<User>();
+
+        String sql = "SELECT * FROM useradmin.users WHERE role = 'customers'";
+        try {
+            Connection con = Connector.connection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()){
+                String email = resultSet.getString("email");
+                String pas = resultSet.getString("password");
+                String role = resultSet.getString("role");
+                User tmpUser = new User(email,pas,role);
+                customers.add(tmpUser);
+            }
+            ps.close();
+            resultSet.close();
+            con.close();
+        } catch (SQLException | ClassNotFoundException e){
+            System.out.println("Fejl i forbindelsen til database.");
+            e.printStackTrace();
+        }
+        return customers;
+    }
 
 
 }

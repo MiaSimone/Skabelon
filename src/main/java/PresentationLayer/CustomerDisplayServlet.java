@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import DBAccess.CustomerMapper;
+import DBAccess.UserMapper;
 import FunctionLayer.User;
 
 import javax.servlet.ServletException;
@@ -14,7 +14,7 @@ import java.util.List;
 @WebServlet(name = "CustomerDisplayServlet")
 public class CustomerDisplayServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<User> customerList = CustomerMapper.customerList();
+        List<User> customerList = UserMapper.customerList();
         request.setAttribute("customerList", customerList);
         request.getRequestDispatcher("WEB-INF/oversigt.jsp").forward(request, response);
     }
